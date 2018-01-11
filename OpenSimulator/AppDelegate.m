@@ -43,7 +43,7 @@ static NSString * SANDBOX_KEY = @"sandBox";
         NSString* windowOwner = [window objectForKey:(NSString *)kCGWindowOwnerName];
         NSString* windowName = [window objectForKey:(NSString *)kCGWindowName];
         
-        if ([windowOwner containsString:@"Simulator"] && ([windowName containsString:@"iOS"] || [windowName containsString:@"watchOS"] || [windowName containsString:@"tvOS"])){
+        if ([windowOwner containsString:@"Simulator"] && ([windowName containsString:@"iOS"] || [windowName containsString:@"watchOS"] || [windowName containsString:@"tvOS"] || [windowName containsString:@"iPhone"] || [windowName containsString:@"iPad"] || [windowName containsString:@"iPod"])){
             NSString * deviceName = [[windowName componentsSeparatedByString:@" - "] firstObject];
             NSArray * applications = [self installedAppsOnSimulatorWithWindowName:windowName];
             NSMenuItem * item = [[NSMenuItem alloc]init];
@@ -87,8 +87,8 @@ static NSString * SANDBOX_KEY = @"sandBox";
     [mainMenu addItem:quit];
     
     [ideviceinfoCommand performCompletionHandler:^(NSDictionary *deviceinfo) {
-        NSLog(@"%@",deviceinfo);
-        if (deviceinfo) {
+        if (deviceinfo && deviceinfo.allKeys.count > 0) {
+            NSLog(@"%@",deviceinfo);
             NSString * deviceName = deviceinfo[@"DeviceName"];
             NSMenuItem * deviceItem = [[NSMenuItem alloc]init];
             [deviceItem setTitle:deviceName];
@@ -142,12 +142,12 @@ static NSString * SANDBOX_KEY = @"sandBox";
     NSString * filePath = [NSString stringWithFormat:@"%@/Library/Developer/CoreSimulator/Devices/device_set.plist",NSHomeDirectory()];
     NSDictionary * deviceDictionary = [NSDictionary dictionaryWithContentsOfFile:filePath];
     NSDictionary * DefaultDevices = deviceDictionary[@"DefaultDevices"];
-    NSString * version = [[windowName componentsSeparatedByString:@"iOS "] lastObject];
-    NSString * platform = [[[[windowName componentsSeparatedByString:@"- "] lastObject] componentsSeparatedByString:@" "] firstObject];
-    NSString * versionKey = [NSString stringWithFormat:@"com.apple.CoreSimulator.SimRuntime.%@",platform];
-    for (NSString * string in [version componentsSeparatedByString:@"."]) {
-        versionKey = [versionKey stringByAppendingFormat:@"-%@",string];
+    NSString * system;
+    if ([windowName containsString:@"iPhone"] || [windowName containsString:@"iPod"] || [windowName containsString:@"iPad"]) {
+        system = @"iOS";
     }
+    NSString * platform = [[NSString stringWithFormat:@"%@.%@",system,[windowName componentsSeparatedByString:@" "].lastObject] stringByReplacingOccurrencesOfString:@"." withString:@"-"];
+    NSString * versionKey = [NSString stringWithFormat:@"com.apple.CoreSimulator.SimRuntime.%@",platform];
     NSDictionary * simDictionary = DefaultDevices[versionKey];
     NSString * deviceName = [[[windowName componentsSeparatedByString:@" - "] firstObject] stringByReplacingOccurrencesOfString:@" " withString:@"-"];
     NSString * deviceTypeKey = [NSString stringWithFormat:@"com.apple.CoreSimulator.SimDeviceType.%@",deviceName];
@@ -195,20 +195,5 @@ static NSString * SANDBOX_KEY = @"sandBox";
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
     // Insert code here to tear down your application
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 @end

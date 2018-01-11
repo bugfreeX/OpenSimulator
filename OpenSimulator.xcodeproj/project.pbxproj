@@ -59,12 +59,20 @@
 			path = Task;
 			sourceTree = "<group>";
 		};
+		527135702005F6470031A3D3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		52F769D31FB970CA007632EA = {
 			isa = PBXGroup;
 			children = (
 				5274A9C61FC54F2900C14242 /* WebServer */,
 				52F769DE1FB970CA007632EA /* OpenSimulator */,
 				52F769DD1FB970CA007632EA /* Products */,
+				527135702005F6470031A3D3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -125,6 +133,9 @@
 						CreatedOnToolsVersion = 9.1;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
+							com.apple.NetworkExtensions = {
+								enabled = 0;
+							};
 							com.apple.Sandbox = {
 								enabled = 0;
 							};
@@ -298,6 +309,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = G33ZN9VDZG;
@@ -306,6 +318,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Nelson.OpenSimulator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Debug;
 		};
@@ -313,6 +326,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = G33ZN9VDZG;
@@ -321,6 +335,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Nelson.OpenSimulator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
 		};
