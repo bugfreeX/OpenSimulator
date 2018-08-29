@@ -25,6 +25,7 @@
 		5233A3941FC41C5600DA5AAF /* ideviceinfoCommand.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ideviceinfoCommand.h; sourceTree = "<group>"; };
 		5233A3951FC41C5600DA5AAF /* ideviceinfoCommand.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ideviceinfoCommand.m; sourceTree = "<group>"; };
 		5274A9C61FC54F2900C14242 /* WebServer */ = {isa = PBXFileReference; lastKnownFileType = folder; path = WebServer; sourceTree = "<group>"; };
+		52A6AD1620F33958006EF7ED /* OpenSimulator.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OpenSimulator.entitlements; sourceTree = "<group>"; };
 		52BDFF871FBC33EB00493B5A /* Settings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
 		52BDFF881FBC33EB00493B5A /* Settings.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
 		52F769DC1FB970CA007632EA /* OpenSimulator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenSimulator.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -87,6 +88,7 @@
 		52F769DE1FB970CA007632EA /* OpenSimulator */ = {
 			isa = PBXGroup;
 			children = (
+				52A6AD1620F33958006EF7ED /* OpenSimulator.entitlements */,
 				5233A38E1FC41A1300DA5AAF /* Task */,
 				52F769DF1FB970CA007632EA /* AppDelegate.h */,
 				52F769E01FB970CA007632EA /* AppDelegate.m */,
