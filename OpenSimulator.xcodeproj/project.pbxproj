@@ -7,10 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5233A3911FC41A1300DA5AAF /* AsyncTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 5233A38F1FC41A1300DA5AAF /* AsyncTask.m */; };
-		5233A3931FC41A1E00DA5AAF /* ideviceinfo in Resources */ = {isa = PBXBuildFile; fileRef = 5233A3921FC41A1E00DA5AAF /* ideviceinfo */; };
-		5233A3961FC41C5600DA5AAF /* ideviceinfoCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 5233A3951FC41C5600DA5AAF /* ideviceinfoCommand.m */; };
-		5274A9C71FC54F2A00C14242 /* WebServer in Resources */ = {isa = PBXBuildFile; fileRef = 5274A9C61FC54F2900C14242 /* WebServer */; };
 		52BDFF891FBC33EB00493B5A /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = 52BDFF881FBC33EB00493B5A /* Settings.m */; };
 		52F769E11FB970CA007632EA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F769E01FB970CA007632EA /* AppDelegate.m */; };
 		52F769E31FB970CA007632EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52F769E21FB970CA007632EA /* Assets.xcassets */; };
@@ -19,12 +15,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5233A38F1FC41A1300DA5AAF /* AsyncTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncTask.m; sourceTree = "<group>"; };
-		5233A3901FC41A1300DA5AAF /* AsyncTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncTask.h; sourceTree = "<group>"; };
-		5233A3921FC41A1E00DA5AAF /* ideviceinfo */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = ideviceinfo; sourceTree = "<group>"; };
-		5233A3941FC41C5600DA5AAF /* ideviceinfoCommand.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ideviceinfoCommand.h; sourceTree = "<group>"; };
-		5233A3951FC41C5600DA5AAF /* ideviceinfoCommand.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ideviceinfoCommand.m; sourceTree = "<group>"; };
-		5274A9C61FC54F2900C14242 /* WebServer */ = {isa = PBXFileReference; lastKnownFileType = folder; path = WebServer; sourceTree = "<group>"; };
 		52A6AD1620F33958006EF7ED /* OpenSimulator.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OpenSimulator.entitlements; sourceTree = "<group>"; };
 		52BDFF871FBC33EB00493B5A /* Settings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
 		52BDFF881FBC33EB00493B5A /* Settings.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
@@ -48,18 +38,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5233A38E1FC41A1300DA5AAF /* Task */ = {
-			isa = PBXGroup;
-			children = (
-				5233A3921FC41A1E00DA5AAF /* ideviceinfo */,
-				5233A38F1FC41A1300DA5AAF /* AsyncTask.m */,
-				5233A3901FC41A1300DA5AAF /* AsyncTask.h */,
-				5233A3941FC41C5600DA5AAF /* ideviceinfoCommand.h */,
-				5233A3951FC41C5600DA5AAF /* ideviceinfoCommand.m */,
-			);
-			path = Task;
-			sourceTree = "<group>";
-		};
 		527135702005F6470031A3D3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -70,7 +48,6 @@
 		52F769D31FB970CA007632EA = {
 			isa = PBXGroup;
 			children = (
-				5274A9C61FC54F2900C14242 /* WebServer */,
 				52F769DE1FB970CA007632EA /* OpenSimulator */,
 				52F769DD1FB970CA007632EA /* Products */,
 				527135702005F6470031A3D3 /* Frameworks */,
@@ -89,7 +66,6 @@
 			isa = PBXGroup;
 			children = (
 				52A6AD1620F33958006EF7ED /* OpenSimulator.entitlements */,
-				5233A38E1FC41A1300DA5AAF /* Task */,
 				52F769DF1FB970CA007632EA /* AppDelegate.h */,
 				52F769E01FB970CA007632EA /* AppDelegate.m */,
 				52BDFF871FBC33EB00493B5A /* Settings.h */,
@@ -133,7 +109,7 @@
 				TargetAttributes = {
 					52F769DB1FB970CA007632EA = {
 						CreatedOnToolsVersion = 9.1;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.NetworkExtensions = {
 								enabled = 0;
@@ -170,8 +146,6 @@
 			files = (
 				52F769E31FB970CA007632EA /* Assets.xcassets in Resources */,
 				52F769E61FB970CA007632EA /* MainMenu.xib in Resources */,
-				5274A9C71FC54F2A00C14242 /* WebServer in Resources */,
-				5233A3931FC41A1E00DA5AAF /* ideviceinfo in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -185,8 +159,6 @@
 				52F769E91FB970CA007632EA /* main.m in Sources */,
 				52F769E11FB970CA007632EA /* AppDelegate.m in Sources */,
 				52BDFF891FBC33EB00493B5A /* Settings.m in Sources */,
-				5233A3911FC41A1300DA5AAF /* AsyncTask.m in Sources */,
-				5233A3961FC41C5600DA5AAF /* ideviceinfoCommand.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,9 +284,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Mac Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = G33ZN9VDZG;
+				DEVELOPMENT_TEAM = W4J3FFH5ZH;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = OpenSimulator/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
@@ -329,9 +301,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Mac Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = G33ZN9VDZG;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = OpenSimulator/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";

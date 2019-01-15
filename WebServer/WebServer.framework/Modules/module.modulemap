@@ -1,6 +1,0 @@
-framework module WebServer {
-  umbrella header "WebServer.h"
-
-  export *
-  module * { export * }
-}

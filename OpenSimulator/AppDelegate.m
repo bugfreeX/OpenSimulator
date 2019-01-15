@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import "Settings.h"
-#import "ideviceinfoCommand.h"
+//#import "ideviceinfoCommand.h"
 static NSString * APP_KEY = @"app";
 static NSString * IDENTIFIER_KEY = @"identifier";
 static NSString * NAME_KEY = @"name";
@@ -31,7 +31,6 @@ static NSString * SANDBOX_KEY = @"sandBox";
     [statusItem.button setImage:[NSImage imageNamed:@"simulators"]];
     statusItem.action = @selector(touchStatusItem:);
     [statusItem setToolTip:@"Open current sandBox"];
-    
     
 }
 
@@ -59,8 +58,10 @@ static NSString * SANDBOX_KEY = @"sandBox";
                 [subItem setTitle:dictionary[NAME_KEY]];
                 [subItem setToolTip:dictionary[SANDBOX_KEY]];
 //                NSImage * subIcon = [[NSWorkspace sharedWorkspace] iconForFile:dictionary[APP_KEY]];
-//                NSImage * subIcon = [[NSWorkspace sharedWorkspace] iconForFile:[dictionary[APP_KEY] stringByAppendingPathComponent:@"AppIcon40x40@2x.png"]];
                 NSImage * subIcon = [[NSImage alloc]initWithContentsOfFile:[dictionary[APP_KEY] stringByAppendingPathComponent:@"AppIcon40x40@2x.png"]];
+//                if (!subIcon) {
+//                    NSLog(@"---%@",dictionary[NAME_KEY]);
+//                }
                 [subIcon setSize:CGSizeMake(30, 30)];
                 [subItem setImage:subIcon];
                 subItem.action = @selector(openSandBox:);
@@ -88,33 +89,9 @@ static NSString * SANDBOX_KEY = @"sandBox";
     NSMenuItem* quit = [[NSMenuItem alloc] initWithTitle:@"Quit" action:@selector(exitApp:) keyEquivalent:@"Q"];
     [mainMenu addItem:quit];
     
-//    [ideviceinfoCommand performCompletionHandler:^(NSDictionary *deviceinfo) {
-//        if (deviceinfo && deviceinfo.allKeys.count > 0) {
-//            NSLog(@"%@",deviceinfo);
-//            NSString * deviceName = deviceinfo[@"DeviceName"];
-//            NSMenuItem * deviceItem = [[NSMenuItem alloc]init];
-//            [deviceItem setTitle:deviceName];
-//            NSMenu * deviceSubMenu = [[NSMenu alloc]init];
-//            [deviceSubMenu addItemWithTitle:@"Open Web Server" action:@selector(openWebServer:) keyEquivalent:@""];
-//            [deviceSubMenu addItemWithTitle:@"Usage" action:@selector(usageAction) keyEquivalent:@""];
-//            [deviceItem setSubmenu:deviceSubMenu];
-//            [mainMenu insertItem:deviceItem atIndex:mainMenu.numberOfItems - 3];
-//            [statusItem popUpStatusItemMenu:mainMenu];
-//        }else{
-            [statusItem popUpStatusItemMenu:mainMenu];
-//        }
-//    }];
+    [statusItem popUpStatusItemMenu:mainMenu];
+
 }
-
-//-(void)openWebServer:(NSMenuItem *)item{
-//    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://%@.local:9090",item.parentItem.title]]];
-//}
-//
-//-(void)usageAction{
-//    NSLog(@"%s",__func__);
-//    [[NSWorkspace sharedWorkspace] openFile:[[NSBundle mainBundle].resourcePath stringByAppendingPathComponent:@"WebServer"]];
-//}
-
 
 - (void) exitApp:(id)sender
 {
