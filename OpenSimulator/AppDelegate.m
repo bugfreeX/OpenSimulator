@@ -128,7 +128,16 @@ static NSString * SANDBOX_KEY = @"sandBox";
     NSString * platform = [[NSString stringWithFormat:@"%@.%@",system,[windowName componentsSeparatedByString:@" "].lastObject] stringByReplacingOccurrencesOfString:@"." withString:@"-"];
     NSString * versionKey = [NSString stringWithFormat:@"com.apple.CoreSimulator.SimRuntime.%@",platform];
     NSDictionary * simDictionary = DefaultDevices[versionKey];
-    NSString * deviceName = [[[windowName componentsSeparatedByString:@" - "] firstObject] stringByReplacingOccurrencesOfString:@" " withString:@"-"];
+    //?
+    NSString *deviceName;
+    if ([windowName containsString:@" — "]) {
+        deviceName = [[[windowName componentsSeparatedByString:@" — "] firstObject] stringByReplacingOccurrencesOfString:@" " withString:@"-"];
+    }else{
+        deviceName = [[[windowName componentsSeparatedByString:@" - "] firstObject] stringByReplacingOccurrencesOfString:@" " withString:@"-"];
+    }
+    deviceName = [deviceName stringByReplacingOccurrencesOfString:@"Xs" withString:@"XS"];
+    deviceName = [deviceName stringByReplacingOccurrencesOfString:@"Xʀ" withString:@"XR"];
+    
     NSString * deviceTypeKey = [NSString stringWithFormat:@"com.apple.CoreSimulator.SimDeviceType.%@",deviceName];
     NSString * deviceUDID = simDictionary[deviceTypeKey];
     NSString * devicePath = [[filePath stringByDeletingLastPathComponent] stringByAppendingPathComponent:deviceUDID];
