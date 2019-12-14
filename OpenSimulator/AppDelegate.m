@@ -132,7 +132,6 @@ static NSString * SANDBOX_KEY = @"sandBox";
         NSLog(@"Can't find %@", versionKey);
         // 修正一下最小的子版本号有时候不在配置中的情况
         NSArray *platformParts = [platform componentsSeparatedByString:@"-"];
-        platform = @"";
         NSMutableString *platform2 = [[NSMutableString alloc] initWithCapacity:platform.length];
         if (platformParts.count > 0) {
             for (NSUInteger i=0; i<platformParts.count-1; i++) {
