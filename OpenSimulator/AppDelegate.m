@@ -128,6 +128,23 @@ static NSString * SANDBOX_KEY = @"sandBox";
     NSString * platform = [[NSString stringWithFormat:@"%@.%@",system,[windowName componentsSeparatedByString:@" "].lastObject] stringByReplacingOccurrencesOfString:@"." withString:@"-"];
     NSString * versionKey = [NSString stringWithFormat:@"com.apple.CoreSimulator.SimRuntime.%@",platform];
     NSDictionary * simDictionary = DefaultDevices[versionKey];
+    if (simDictionary == nil) {
+        NSLog(@"Can't find %@", versionKey);
+        // 修正一下最小的子版本号有时候不在配置中的情况
+        NSArray *platformParts = [platform componentsSeparatedByString:@"-"];
+        NSMutableString *platform2 = [[NSMutableString alloc] initWithCapacity:platform.length];
+        if (platformParts.count > 0) {
+            for (NSUInteger i=0; i<platformParts.count-1; i++) {
+                [platform2 appendString:platformParts[i]];
+                if (i != platformParts.count-2) {
+                    [platform2 appendString:@"-"];
+                }
+            }
+            platform = platform2;
+        }
+        versionKey = [NSString stringWithFormat:@"com.apple.CoreSimulator.SimRuntime.%@",platform];
+        simDictionary = DefaultDevices[versionKey];
+    }
     //?
     NSString *deviceName;
     if ([windowName containsString:@" — "]) {
